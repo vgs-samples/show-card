@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Show Payments</title>
+<script src="jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(() => {
+    $.ajax({
+        url: 'api/payments',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+            var payments = $('#payments');
+
+            var items = data.map(function (item) {
+                console.log(items);
+                return item.id + ' Credit Card Number: ' + item.pan + ' Card Holder Name: ' + item.name;
+            });
+            if (items.length) {
+                var content = '<li>' + items.join('</li><li>') + '</li>';
+                var list = $('<ul />').html(content);
+                payments.append(list);
+            }
+        }
+    });
+
+    $('#reveal').click(function () {
+
+        var requestURL = 'https://tntxqudwikg.sandbox.verygoodproxy.com/api/show';
+
+        $.ajax({
+            type: "GET",
+            url: requestURL,
+            success:  (data) => {
+                var payments = $('#payments');
+                payments.empty();
+                var items = data.map(function (item) {
+                    console.log(items);
+                    return item.id + ' Credit Card Number: ' + item.pan + ' Card Holder Name: ' + item.name;
+                });
+                if (items.length) {
+                    var content = '<li>' + items.join('</li><li>') + '</li>';
+                    var list = $('<ul />').html(content);
+                    payments.append(list);
+                }
+            }
+        });
+
+    });
+})
+</script>
+
+</head>
+<body>
+  <h1>Show Card</h1>
+  <hr/>
+
+  <p>Your saved payments:</p>
+  <div id="payments"></div>
+
+  <button id="reveal">Reveal Credit Card</button>
+
+</body>
+</html>
