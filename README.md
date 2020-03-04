@@ -2,7 +2,8 @@
 <p align="center"><b>Show Card with VGS Reverse Proxy</b></p>
 
 # Instructions for using this App
-This app demonstrates a use case using VGS reverse proxy to reveal card back to card holder.
+This app demonstrates a use case using VGS reverse proxy to reveal card back to card holder.   
+You must authenticate and identify your users properly to apply it https://www.verygoodsecurity.com/docs/faq#can-i-reveal-credit-card-information-in-my-mobile-app-can-i-reveal-credit-card-information-from-my-website
 
 ![appdemo](reveal-card.gif "demo")
 
